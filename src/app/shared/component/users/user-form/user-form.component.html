@@ -1,0 +1,24 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <h3 class="text-capitalize bg-primary text-center">{{iseditmode?'update user':'Add new user'}}</h3>
+            <form [formGroup]="userform"(ngSubmit)="onadduser()">
+                <div class="form-group">
+                    <label for="userName">userName</label>
+                    <input type="text" class="form-control" formControlName='userName'>
+                </div>
+                <div class="form-group">
+                    <label for="userRole">userRole</label>
+                    <select name="userRole" id="userRole" formControlName='userRole' class="form-control">
+                        <option value="Admin">Admin</option>
+                        <option value="Users">Users</option>
+                    </select>
+                </div>
+                <div class="text-right">
+                    <button class="btn btn-secondary" *ngIf=" !iseditmode">Add user</button>
+                    <button class="btn btn-secondary" (click)="onupdate()"  type="button"  *ngIf="iseditmode">update user</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

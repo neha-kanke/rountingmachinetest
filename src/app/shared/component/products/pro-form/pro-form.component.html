@@ -1,0 +1,25 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <h3 class="text-capitalize bg-secondary text-center text-white">{{iseditmode?'update product':'Add new product'}}</h3>
+            <form [formGroup]="productform" (ngSubmit)="onaddproduct()">
+                <div class="form-group">
+                    <label for="pName">product Name</label>
+                    <input type="text" class="form-control" formControlName="pName">
+                </div>
+                <div class="form-group">
+                    <label for="pStatus">products status</label>
+                    <select name="pStatus" id="pStatus" class="form-control" formControlName="pStatus">
+                        <option value="In Progress">In Progress</option>
+                        <option value="Dispathched">Dispathched</option>
+                        <option value="Delivered">Delivered</option>
+                    </select>
+                </div>
+                <div class="text-right">
+                    <button class="btn btn-primary" *ngIf="!iseditmode">Add product</button>
+                    <button class="btn btn-primary" *ngIf="iseditmode" type="button" (click)="onupdate()">update product</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
